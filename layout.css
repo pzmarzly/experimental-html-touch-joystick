@@ -1,0 +1,21 @@
+#joystick-left {
+    grid-area: joy-left;
+}
+
+#joystick-right {
+    grid-area: joy-right;
+}
+
+/* uncomment any of below to hide (disable) and element */
+
+/*
+#joystick-left {
+    display: none;
+}
+*/
+
+/*
+#joystick-right {
+    display: none;
+}
+*/
