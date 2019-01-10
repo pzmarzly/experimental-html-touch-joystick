@@ -1,3 +1,5 @@
+/* Basic properties */
+
 body {
     margin: 0;
 }
@@ -8,6 +10,7 @@ body {
     height: 100vh;
 }
 
-.control {
-    background-color: #bbb;
+.circle {
+    position: fixed;
+    transform: translate(-50%, -50%);
 }
