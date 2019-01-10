@@ -1,4 +1,4 @@
-const DEBUG = true;
+const DEBUG_MSG_LABEL = true;
 
 class Control {
     constructor(type, id, updateStateCallback) {
@@ -26,9 +26,31 @@ class Control {
 class Joystick extends Control {
     constructor(id, updateStateCallback) {
         super('joystick', 'j' + id, updateStateCallback);
+        this._stateX = 0.5;
+        this._stateY = 0.5;
+        this.locking = false;
+    }
+    onTouch(ev) {
+        let pos = ev.targetTouches[0];
+        let offset = this.element.getBoundingClientRect();
+        this._stateX = this._truncate((pos.pageX - offset.x) / offset.width);
+        this._stateY = this._truncate((pos.pageY - offset.y) / offset.height);
+        this.updateStateCallback();
+    }
+    _truncate(f) {
+        if (f < 0) return 0;
+        if (f > 1) return 1;
+        return f;
+    }
+    onTouchEnd() {
+        if (!this.locking) {
+            this._stateX = 0.5;
+            this._stateY = 0.5;
+            this.updateStateCallback();
+        }
     }
     state() {
-        return '0,0';
+        return this._stateX.toString() + ',' + this._stateY.toString();
     }
 }
 
@@ -74,14 +96,15 @@ class Joypad {
             }
         });
 
-        if (DEBUG) {
+        if (DEBUG_MSG_LABEL) {
             this.debugLabel = new Control('debug', 'dbg');
+            this.debugLabel.element.style.wordWrap = "break-word";
             joypad.appendChild(this.debugLabel.element);
         }
     }
     updateState() {
         let state = this.controls.map(control => control.state()).join(',');
-        if (DEBUG) {
+        if (DEBUG_MSG_LABEL) {
             this.debugLabel.element.innerHTML = state;
         }
         // console.log(state);
