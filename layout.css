@@ -1,21 +1,14 @@
-#joystick-left {
-    grid-area: joy-left;
+#joypad {
+    grid-template-areas:
+      /* .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .    */
+        ".   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   "
+        ".   jl  jl  jl  .   .   .   .   .   .   .   .   .   b4  .   .   "
+        ".   jl  jl  jl  .   .   .   .   .   .   .   .   b3  .   b2  .   "
+        ".   jl  jl  jl  .   .   .   .   .   .   .   .   .   b1  .   .   "
+        ".   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   "
+        ".   .   .   .   .   .   .   .   .   jr  jr  jr  .   .   .   .   "
+        ".   .   .   .   .   .   .   .   .   jr  jr  jr  .   .   .   .   "
+        ".   .   .   .   .   .   .   .   .   jr  jr  jr  .   .   .   .   "
+        "dbg dbg dbg dbg dbg dbg dbg dbg dbg dbg dbg dbg dbg dbg dbg dbg "
+        ;
 }
-
-#joystick-right {
-    grid-area: joy-right;
-}
-
-/* uncomment any of below to hide (disable) and element */
-
-/*
-#joystick-left {
-    display: none;
-}
-*/
-
-/*
-#joystick-right {
-    display: none;
-}
-*/

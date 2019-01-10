@@ -2,14 +2,12 @@ body {
     margin: 0;
 }
 
-#joystick-grid {
+#joypad {
     display: grid;
     width: 100vw;
     height: 100vh;
 }
 
-.joystick {
-    width: 150pt;
-    height: 170pt;
-    background-color: black;
+.control {
+    background-color: #bbb;
 }
