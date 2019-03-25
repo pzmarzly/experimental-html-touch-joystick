@@ -1,4 +1,4 @@
-# HTML vitual joystick for touch-screen devices
+# HTML virtual joystick for touch-screen devices
 
 Made for https://github.com/rmst/yoke/issues/2
 
